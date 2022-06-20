@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Hemoglobin"
         xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
         mc:Ignorable="d"
-        Title="Hemoglobin" Height="450" Width="800" ResizeMode="CanResize"
+        Title="Hemoglobin" 
+        Height="450" Width="800"
+        MinHeight="180" MinWidth="340"
+        ResizeMode="CanResize"
         WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" Topmost="True">
     <WindowChrome.WindowChrome>
@@ -31,10 +34,10 @@
                        Stroke="#8CFFFFFF"
                        StrokeDashArray="4"/>
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Image x:Name="AppTitleImage" Height="64" VerticalAlignment="Center"
+                <Image x:Name="AppTitleImage" MaxHeight="64" VerticalAlignment="Center"
                        Source="/Hemoglobin;Component/Assets/Icons/Logo.png"
-                       xf:Animations.Primary="{xf:Animate BasedOn={StaticResource Grow}, Duration=2000}"
-                       xf:Animations.IterationBehavior="Forever"/>
+                       xf:Animations.Primary="{xf:Animate BasedOn={StaticResource Grow}, Duration=2000}"/>
+                <!--xf:Animations.IterationBehavior="Forever"/>-->
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock x:Name="AppTitleTextBlock" Foreground="White" Text="Hemoglobin" FontFamily="Century" FontWeight="Bold" FontSize="24" Margin="10,0,0,0"/>
                     <TextBlock x:Name="AppNoteTextBlock" Foreground="White" Text="Drag text, picture or file here" FontFamily="Century" FontSize="15" Margin="12,4,0,0" Opacity="0.7"/>
