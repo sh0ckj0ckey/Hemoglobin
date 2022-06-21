@@ -36,5 +36,10 @@ namespace Hemoglobin
             }
             catch { }
         }
+
+        private void Grid_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

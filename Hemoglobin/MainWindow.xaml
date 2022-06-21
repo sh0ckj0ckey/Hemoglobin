@@ -19,6 +19,115 @@
                       NonClientFrameEdges="None"
                       ResizeBorderThickness="6"/>
     </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BorderBrush" Value="#20212529"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="Stop1"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#33FFFFFF"
+                                                            Duration="0:0:0.2" />
+                                            <ColorAnimation Storyboard.TargetName="Stop2"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#11FFFFFF"
+                                                            Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="Stop1"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#11000000"
+                                                            Duration="0:0:0.2" />
+                                            <ColorAnimation Storyboard.TargetName="Stop2"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#33000000"
+                                                            Duration="0:0:0.2" />
+                                            <!--<DoubleAnimation Storyboard.TargetName="HighlightBorder"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0"
+                                                             Duration="0:0:0.2" />-->
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <!--<Border Margin="0,0,0,-1"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    CornerRadius="16"
+                                    Opacity="0.3"
+                                    SnapsToDevicePixels="true">
+                                <Rectangle Margin="0,4,0,0"
+                                           Fill="White"
+                                           Opacity=".5"
+                                           RadiusX="5"
+                                           RadiusY="5" />
+                            </Border>-->
+                            <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="16"
+                                    SnapsToDevicePixels="true">
+                                <Grid>
+                                    <!--<Border x:Name="HighlightBorder"
+                                            BorderBrush="White"
+                                            BorderThickness="1"
+                                            CornerRadius="16">
+                                        <Border.OpacityMask>
+                                            <RadialGradientBrush x:Name="Brush" Center=".3,.0" GradientOrigin=".3,.0" RadiusX=".2" RadiusY=".2">
+                                                <GradientStop Color="#8000" />
+                                                <GradientStop Offset=".7" Color="#3000" />
+                                                <GradientStop Offset="1" Color="#1000" />
+                                            </RadialGradientBrush>
+                                        </Border.OpacityMask>
+                                    </Border>-->
+                                    <ContentPresenter x:Name="contentPresenter"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                      Focusable="False"
+                                                      RecognizesAccessKey="True"
+                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    <Rectangle x:Name="rectangle"
+                                               RadiusX="16"
+                                               RadiusY="16">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                                <GradientStop x:Name="Stop1" Offset=".5" Color="#10FFFFFF" />
+                                                <GradientStop x:Name="Stop2" Offset=".5" Color="#10FFFFFF" />
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true" />
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" Value="0.6" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="Gray" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
 
     <Border CornerRadius="8" Margin="8" BorderThickness="1" BorderBrush="#10FFFFFF" Background="#212529"
             MouseLeftButtonDown="Border_MouseLeftButtonDown" UseLayoutRounding="True">
@@ -43,6 +152,12 @@
                     <TextBlock x:Name="AppNoteTextBlock" Foreground="White" Text="Drag text, picture or file here" FontFamily="Century" FontSize="15" Margin="12,4,0,0" Opacity="0.7"/>
                 </StackPanel>
             </StackPanel>
+            <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Height="42" Width="96" Background="Transparent"
+                  MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseEnter">
+                <StackPanel Orientation="Horizontal">
+                    <Button Background="#8b1515" Content="WPF Button" Height="28" Width="28"/>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Border>
 </Window>
