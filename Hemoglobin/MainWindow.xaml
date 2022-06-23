@@ -7,9 +7,9 @@
         xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
         mc:Ignorable="d"
         Title="Hemoglobin" 
-        Height="450" Width="800"
+        Height="280" Width="520"
         MinHeight="180" MinWidth="340"
-        ResizeMode="CanResize"
+        ResizeMode="NoResize"
         WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" Topmost="True">
     <WindowChrome.WindowChrome>
@@ -38,11 +38,11 @@
                                             <ColorAnimation Storyboard.TargetName="Stop1"
                                                             Storyboard.TargetProperty="Color"
                                                             To="#33FFFFFF"
-                                                            Duration="0:0:0.2" />
+                                                            Duration="0:0:0.15" />
                                             <ColorAnimation Storyboard.TargetName="Stop2"
                                                             Storyboard.TargetProperty="Color"
-                                                            To="#11FFFFFF"
-                                                            Duration="0:0:0.2" />
+                                                            To="#33FFFFFF"
+                                                            Duration="0:0:0.15" />
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Pressed">
@@ -50,61 +50,24 @@
                                             <ColorAnimation Storyboard.TargetName="Stop1"
                                                             Storyboard.TargetProperty="Color"
                                                             To="#11000000"
-                                                            Duration="0:0:0.2" />
+                                                            Duration="0:0:0.1" />
                                             <ColorAnimation Storyboard.TargetName="Stop2"
                                                             Storyboard.TargetProperty="Color"
-                                                            To="#33000000"
-                                                            Duration="0:0:0.2" />
-                                            <!--<DoubleAnimation Storyboard.TargetName="HighlightBorder"
-                                                             Storyboard.TargetProperty="Opacity"
-                                                             To="0"
-                                                             Duration="0:0:0.2" />-->
+                                                            To="#11000000"
+                                                            Duration="0:0:0.1" />
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Disabled" />
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <!--<Border Margin="0,0,0,-1"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    CornerRadius="16"
-                                    Opacity="0.3"
-                                    SnapsToDevicePixels="true">
-                                <Rectangle Margin="0,4,0,0"
-                                           Fill="White"
-                                           Opacity=".5"
-                                           RadiusX="5"
-                                           RadiusY="5" />
-                            </Border>-->
                             <Border x:Name="border"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="16"
-                                    SnapsToDevicePixels="true">
+                                    SnapsToDevicePixels="True">
                                 <Grid>
-                                    <!--<Border x:Name="HighlightBorder"
-                                            BorderBrush="White"
-                                            BorderThickness="1"
-                                            CornerRadius="16">
-                                        <Border.OpacityMask>
-                                            <RadialGradientBrush x:Name="Brush" Center=".3,.0" GradientOrigin=".3,.0" RadiusX=".2" RadiusY=".2">
-                                                <GradientStop Color="#8000" />
-                                                <GradientStop Offset=".7" Color="#3000" />
-                                                <GradientStop Offset="1" Color="#1000" />
-                                            </RadialGradientBrush>
-                                        </Border.OpacityMask>
-                                    </Border>-->
-                                    <ContentPresenter x:Name="contentPresenter"
-                                                      Margin="{TemplateBinding Padding}"
-                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                      Focusable="False"
-                                                      RecognizesAccessKey="True"
-                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                    <Rectangle x:Name="rectangle"
-                                               RadiusX="16"
-                                               RadiusY="16">
+                                    <Rectangle x:Name="rectangle" RadiusX="16" RadiusY="16">
                                         <Rectangle.Fill>
                                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                                 <GradientStop x:Name="Stop1" Offset=".5" Color="#10FFFFFF" />
@@ -112,6 +75,13 @@
                                             </LinearGradientBrush>
                                         </Rectangle.Fill>
                                     </Rectangle>
+                                    <ContentPresenter x:Name="contentPresenter"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                      Focusable="False"
+                                                      RecognizesAccessKey="True"
+                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                 </Grid>
                             </Border>
                         </Grid>
@@ -127,6 +97,17 @@
             </Setter>
         </Style>
 
+        <!--<DoubleAnimation>
+            
+        </DoubleAnimation>-->
+
+        <DrawingImage x:Key="CloseIcon">
+            <DrawingImage.Drawing>
+                <DrawingGroup ClipGeometry="M0,0 V22 H22 V0 H0 Z">
+                    <GeometryDrawing Brush="#212529" Geometry="M17.4167 5.87584L16.1242 4.58334L11 9.70751L5.87584 4.58334L4.58334 5.87584L9.70751 11L4.58334 16.1242L5.87584 17.4167L11 12.2925L16.1242 17.4167L17.4167 16.1242L12.2925 11L17.4167 5.87584Z"/>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
     </Window.Resources>
 
     <Border CornerRadius="8" Margin="8" BorderThickness="1" BorderBrush="#10FFFFFF" Background="#212529"
@@ -141,21 +122,22 @@
                        Fill="#80A43126"
                        StrokeThickness="2"
                        Stroke="#8CFFFFFF"
-                       StrokeDashArray="4"/>
+                       StrokeDashArray="0"/>
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Image x:Name="AppTitleImage" MaxHeight="64" VerticalAlignment="Center"
                        Source="/Hemoglobin;Component/Assets/Icons/Logo.png"
                        xf:Animations.Primary="{xf:Animate BasedOn={StaticResource Grow}, Duration=2000}"/>
-                <!--xf:Animations.IterationBehavior="Forever"/>-->
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock x:Name="AppTitleTextBlock" Foreground="White" Text="Hemoglobin" FontFamily="Century" FontWeight="Bold" FontSize="24" Margin="10,0,0,0"/>
                     <TextBlock x:Name="AppNoteTextBlock" Foreground="White" Text="Drag text, picture or file here" FontFamily="Century" FontSize="15" Margin="12,4,0,0" Opacity="0.7"/>
                 </StackPanel>
             </StackPanel>
-            <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Height="42" Width="96" Background="Transparent"
-                  MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseEnter">
-                <StackPanel Orientation="Horizontal">
-                    <Button Background="#8b1515" Content="WPF Button" Height="28" Width="28"/>
+            <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Height="96" Width="96" Background="Transparent"
+                  MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Button Background="#8b1515" Foreground="#212529" BorderThickness="1" Height="24" Width="24" Margin="0,12,14,0" Click="Button_Click">
+                        <Image Source="{StaticResource CloseIcon}" Height="10"/>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Grid>

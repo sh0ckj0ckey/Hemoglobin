@@ -41,5 +41,19 @@ namespace Hemoglobin
         {
 
         }
+
+        private void Grid_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch { }
+        }
     }
 }
