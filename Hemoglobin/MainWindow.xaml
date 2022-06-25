@@ -11,7 +11,7 @@
         Height="280" Width="520"
         ResizeMode="NoResize"
         WindowStyle="None" AllowsTransparency="True"
-        Background="Transparent" Topmost="True"
+        Background="Transparent" Topmost="True" ShowInTaskbar="False"
         x:Name="MainWnd">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"
@@ -123,7 +123,7 @@
         <!--向上收缩窗口的动画-->
         <Storyboard x:Key="CompactWndTopStoryBoard">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainWnd" Storyboard.TargetProperty="(Window.Height)">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="30">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="20">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <CircleEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -137,7 +137,7 @@
         <!--向左收缩窗口的动画-->
         <Storyboard x:Key="CompactWndLeftStoryBoard">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainWnd" Storyboard.TargetProperty="(Window.Width)">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="30">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="20">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <CircleEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
