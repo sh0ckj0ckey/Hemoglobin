@@ -201,6 +201,7 @@
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                 <TextBlock x:Name="AppTitleTextBlock" Foreground="White" Text="Hemoglobin" FontFamily="Century" FontWeight="Bold" FontSize="24" Margin="10,0,0,0"/>
                 <TextBlock x:Name="AppNoteTextBlock" Foreground="White" Text="drag anything here" FontFamily="Century" FontSize="14" Margin="12,4,0,0" Opacity="0.7"/>
+                <TextBlock x:Name="AppNote2TextBlock" Foreground="White" Text="double click to type text" FontFamily="Century" FontSize="14" Margin="12,4,0,0" Opacity="0.7"/>
             </StackPanel>
         </StackPanel>
 
