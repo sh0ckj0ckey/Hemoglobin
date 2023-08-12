@@ -13,6 +13,33 @@
         WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" Topmost="True" ShowInTaskbar="False"
         x:Name="MainWnd">
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--拖拽文件进入时，出现蓝色背景，拖拽文件离开时出现橙色背景，传送门风格-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"
                       CornerRadius="0"
